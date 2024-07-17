@@ -1,0 +1,22 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">User Name*: </label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+
+    <div>
+        <label for="name">Workout Type*: </label>
+        <select formControlName="type">
+            <option *ngFor="let workout of workouts" [ngValue]="workout">
+              {{ workout }}
+            </option>
+          </select>
+    </div>
+
+    <div>
+        <label for="name">Workout Minutes*: </label>
+        <input id="name" type="number" formControlName="workout_minutes">
+    </div>
+
+    <button [disabled]="!userForm.valid">Add Workout</button>
+</form>
